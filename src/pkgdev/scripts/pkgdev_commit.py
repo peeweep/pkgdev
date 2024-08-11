@@ -877,7 +877,9 @@ def determine_msg_args(options, changes):
 @commit.bind_final_check
 def _commit_validate(parser, namespace):
     # flag for testing if running under the gentoo repo
-    namespace.gentoo_repo = namespace.repo.repo_id == "gentoo"
+    # namespace.gentoo_repo = namespace.repo.repo_id == "gentoo"
+    # namespace.gentoo_repo = namespace.repo.repo_id in {"gentoo", "gentoo-zh", "peeweep"}
+    namespace.gentoo_repo = True
 
     # mangle files in the gentoo repo by default
     if namespace.mangle is None and namespace.gentoo_repo:
